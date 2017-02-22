@@ -11,7 +11,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import steven.developer.appgaf.R;
+import steven.developer.appgaf.models.Goal;
 
 /**
  * Created by Steven on 19/02/2017.
@@ -27,9 +30,32 @@ public class DialogAdd extends DialogFragment {
     private View.OnClickListener mBtnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            int id = v.getId();
+            switch (id) {
+                case R.id.btn_add_goal:
+                    addAction();
+                    break;
+            }
             dismiss();
         }
     };
+
+    private void addAction() {
+        String goal = mInputGoal.getText().toString();
+        long now = System.currentTimeMillis();
+
+        Goal goalModel = new Goal(goal, now, 0, false);
+
+        // Configurando la bd
+        RealmConfiguration configuration = new RealmConfiguration.Builder(getActivity()).build();
+        Realm.setDefaultConfiguration(configuration);
+
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        realm.copyToRealm(goalModel);
+        realm.commitTransaction();
+        realm.close();
+    }
 
     public DialogAdd() {
     }
