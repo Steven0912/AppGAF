@@ -7,4 +7,6 @@
     <color name="colorPurple">#B691FF</color>
     <color name="colorWhite">#FFF</color>
     <color name="colorDarkBlue">#241543</color>
+    <color name="colorBgGoalRowDark">#BD8E79BB</color>
+    <color name="colorBgGoalRowLight">#4A8E79BB</color>
 </resources>

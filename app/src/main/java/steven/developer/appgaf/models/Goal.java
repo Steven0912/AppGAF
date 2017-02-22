@@ -14,6 +14,9 @@ public class Goal extends RealmObject {
     private long when;
     private boolean completed;
 
+    public Goal() {
+    }
+
     public Goal(String goal, long added, long when, boolean completed) {
         this.goal = goal;
         this.added = added;

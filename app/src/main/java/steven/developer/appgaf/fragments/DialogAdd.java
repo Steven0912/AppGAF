@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -40,7 +41,9 @@ public class DialogAdd extends DialogFragment {
         }
     };
 
+    //TODO process data
     private void addAction() {
+        Toast.makeText(getActivity(), "entra", Toast.LENGTH_SHORT).show();
         String goal = mInputGoal.getText().toString();
         long now = System.currentTimeMillis();
 
@@ -76,5 +79,6 @@ public class DialogAdd extends DialogFragment {
         mBtnAddGoal = (Button) view.findViewById(R.id.btn_add_goal);
 
         mBtnClose.setOnClickListener(mBtnClickListener);
+        mBtnAddGoal.setOnClickListener(mBtnClickListener);
     }
 }
