@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AppGAF</string>
-    <string name="str_add_drop">Añadir meta</string>
+    <string name="str_add_goal">Añadir meta</string>
+    <string name="cual_es_tu_meta">¿Cual es tu meta?</string>
 </resources>
