@@ -43,15 +43,10 @@ public class DialogAdd extends DialogFragment {
 
     //TODO process data
     private void addAction() {
-        Toast.makeText(getActivity(), "entra", Toast.LENGTH_SHORT).show();
         String goal = mInputGoal.getText().toString();
         long now = System.currentTimeMillis();
 
         Goal goalModel = new Goal(goal, now, 0, false);
-
-        // Configurando la bd
-        RealmConfiguration configuration = new RealmConfiguration.Builder(getActivity()).build();
-        Realm.setDefaultConfiguration(configuration);
 
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();

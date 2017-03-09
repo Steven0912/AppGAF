@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import io.realm.RealmResults;
 import steven.developer.appgaf.R;
 import steven.developer.appgaf.models.Goal;
 
@@ -20,13 +18,13 @@ import steven.developer.appgaf.models.Goal;
 public class AdapterGoals extends RecyclerView.Adapter<AdapterGoals.GoalHolder> {
 
     private LayoutInflater mInflater;
-    private ArrayList<Goal> mListGoals;
+    private RealmResults<Goal> mListGoals;
 
     public AdapterGoals(Context context) {
         mInflater = LayoutInflater.from(context);
     }
 
-    public void setUpList(ArrayList<Goal> listGoals) {
+    public void setUpList(RealmResults<Goal> listGoals) {
         mListGoals = listGoals;
         notifyDataSetChanged();
     }
@@ -39,7 +37,8 @@ public class AdapterGoals extends RecyclerView.Adapter<AdapterGoals.GoalHolder> 
 
     @Override
     public void onBindViewHolder(GoalHolder holder, int position) {
-
+        Goal current = mListGoals.get(position);
+        holder.mLbls[0].setText(current.getGoal());
     }
 
     @Override

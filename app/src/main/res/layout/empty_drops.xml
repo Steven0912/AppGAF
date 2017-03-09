@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_logo"
+        android:clickable="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/btn_add_it_margin"
         android:background="@drawable/bg_btn_add_it"
